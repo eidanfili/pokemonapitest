@@ -7,7 +7,6 @@ export default class App extends Component {
 
     this.state = {
       searchInput: "pikachu",
-      pokemon: {},
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.getPokemon = this.getPokemon.bind(this);
@@ -15,7 +14,7 @@ export default class App extends Component {
 
   handleInputChange(event) {
     this.setState({
-      searchInput: event.target.value,
+      searchInput: event.target.value.toLowerCase(),
     });
   }
 
@@ -37,7 +36,10 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
-        <h1>{this.state.searchInput}</h1>
+        {this.state.pokemon
+          ? ((<h1>{this.state.pokemon.name}</h1>),
+            (<img src={this.state.pokemon.sprites.front_default} />))
+          : null}
         <form onSubmit={this.getPokemon}>
           <input
             onChange={this.handleInputChange}
