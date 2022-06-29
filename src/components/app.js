@@ -10,6 +10,7 @@ export default class App extends Component {
       pokemon: {},
     };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.getPokemon = this.getPokemon.bind(this);
   }
 
   handleInputChange(event) {
@@ -23,6 +24,9 @@ export default class App extends Component {
       .get(`https://pokeapi.co/api/v2/pokemon/${this.state.searchInput}`)
       .then((response) => {
         console.log(response.data);
+        this.setState({
+          pokemon: response.data,
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -34,7 +38,7 @@ export default class App extends Component {
     return (
       <div className="app">
         <h1>{this.state.searchInput}</h1>
-        <form>
+        <form onSubmit={this.getPokemon}>
           <input
             onChange={this.handleInputChange}
             type="text"
