@@ -36,10 +36,12 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
-        {this.state.pokemon
-          ? ((<h1>{this.state.pokemon.name}</h1>),
-            (<img src={this.state.pokemon.sprites.front_default} />))
-          : null}
+        {this.state.pokemon ? (
+          <div>
+            <h1>{this.state.pokemon.name}</h1>
+            <img src={this.state.pokemon.sprites.front_default} />
+          </div>
+        ) : null}
         <form onSubmit={this.getPokemon}>
           <input
             onChange={this.handleInputChange}
