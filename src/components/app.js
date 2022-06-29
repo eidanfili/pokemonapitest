@@ -18,15 +18,16 @@ export default class App extends Component {
     });
   }
 
-  getPokemon() {
+  getPokemon(event) {
     axios
-      .get()
+      .get(`https://pokeapi.co/api/v2/pokemon/${this.state.searchInput}`)
       .then((response) => {
         console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
+    event.preventDefault();
   }
 
   render() {
