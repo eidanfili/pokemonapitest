@@ -1,28 +1,63 @@
 html {
-    font-size: 62.5%; // 1rem is 10px
+  font-size: 62.5%; // 1rem is 10px
 }
 
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-    font-family: 'montserrat';
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: "montserrat";
 }
 
 body {
-    overflow-x: hidden;
-    font-weight: normal;
+  overflow-x: hidden;
+  font-weight: normal;
 
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .app {
-    margin-top: 2rem;
-    display: grid;
-    justify-items: center;
+  margin-top: 2rem;
+  display: grid;
+  justify-items: center;
+}
+
+.poke {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &-search {
+    width: 50px;
+    height: 50px;
+    border-radius: 40px;
+  }
+}
+
+.red {
+  border-radius: 40px 40px 0 0;
+  background-color: red;
+  height: 50%;
+  width: 100%;
+  z-index: 1;
+}
+.white {
+  border-radius: 0 0 40px 40px;
+  background-color: white;
+  height: 50%;
+  width: 100%;
+  z-index: -10;
+}
+
+.search-text {
+  z-index: 2;
+  transform: translateY(-35px);
+  color: white;
+  font-weight: 600;
+  color: black;
 }

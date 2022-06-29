@@ -42,13 +42,17 @@ export default class App extends Component {
             <img src={this.state.pokemon.sprites.front_default} />
           </div>
         ) : null}
-        <form onSubmit={this.getPokemon}>
+        <form className="poke" onSubmit={this.getPokemon}>
           <input
             onChange={this.handleInputChange}
             type="text"
             placeholder="Search a Pokemon name"
           />
-          <button>Search!</button>
+          <button className="poke-search">
+            <div className="red" />
+            <div className="white" />
+            <div className="search-text">Search!</div>
+          </button>
         </form>
       </div>
     );
